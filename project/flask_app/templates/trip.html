@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    
+    <title>Account</title>
+    <div class="container">
+        <div>
+            <div class="container">
+                <style>
+                body{
+                    font-family :'Courier New', Courier, monospace;
+                    background-image : url("https://static.vecteezy.com/system/resources/previews/004/554/612/original/abstract-blue-wave-set-on-transparent-background-illustration-free-vector.jpg");
+                    background-repeat: no-repeat;
+                    
+                  }
+                  a:link {
+                 text-decoration: none;
+                 color:black;
+                   }
+                
+                </style>
+
+          
+        
+        
+                <div class="container-fluid" id="blue"><nav class="navbar" >
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                          
+                            
+                          </a>
+                      <span class="navbar-brand mb-0 h1 text-dark"><h1>{{trip.owner.first_name}} you are almost there!</h1></span>
+
+                      
+                 
+
+                      
+                      <span class="navbar-brand"><div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          Go Back
+                        </a>
+                      
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="/dash" id="a">Go to Dash</a></li>
+                          <li><a class="dropdown-item" href="/log_out" id="a">Log Out</a></li>
+                          <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                      </div></span>
+                    
+                     </div>
+               </div>
+               
+          
+
+                <div class="card bg-dark text-white">
+                  <img class="card-img" src="https://www.secondhandboards.com/images/blog/img-15242533757.jpg" alt="Card image">
+                  <div class="card-img-overlay">
+                    <p class="card-text">Rider:{{trip.owner.first_name}} {{trip.owner.last_name}}</p>
+                    <p class="card-text">Day: {{trip.day}}</p>
+                    <p class="card-text">Time: {{trip.time}}</p>
+                    <p class="card-text">Pickup Location: {{trip.pickup_location}}</p>
+                    <p class="card-text"> Destination: {{trip.destination}}</p>
+                    <p class="card-text">Level: {{trip.level}}</p>
+                    <p class="card-text">Rent a board:{{trip.board}}</p>
+                    
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                 
+                  </div>
+                </div>
+                
+                  <form action="/check_oou">
+                     <button type="submit" class="btn btn-secondary btn-lg btn-block mt-3">Check Out Wuth Stripe >></button>
+                  </form>
+          
+              
+                <style>
+                  .card-text{
+                    color:black;
+                    font-weight:bold;
+                    font-size:20px;
+                  }
+                </style>
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </body>
+    </html>

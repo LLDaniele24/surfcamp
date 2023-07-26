@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</head>
+    <title>Account</title>
+    <div class="container">
+        <div>
+            <div class="container">
+                <style>
+                body{
+                    font-family :'Courier New', Courier, monospace;
+                    background-image : url("https://static.vecteezy.com/system/resources/previews/004/554/612/original/abstract-blue-wave-set-on-transparent-background-illustration-free-vector.jpg");
+                    background-repeat: no-repeat;
+                    
+                  }
+                  a:link {
+                 text-decoration: none;
+                   }
+                
+                </style>
+
+          
+        
+        
+                <div class="container-fluid" id="blue"><nav class="navbar" >
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArLeH_hHFWW3E33ZGXOc80m6Df4enbTHD2MvFkO9i6fqCTW0VGJpVQehDyy1PlwmgVWc&usqp=CAU" alt="Logo" width="90" height="90" class="d-inline-block align-text-top">
+                            
+                          </a>
+                      <span class="navbar-brand mb-0 h1 text-dark"><h1>{{user.first_name}}, here are all the trips</h1></span>
+        
+
+                      
+                      <span class="navbar-brand"><div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          Go Back
+                        </a>
+                      
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="/dash" id="a">Go to Dash</a></li>
+                          <li><a class="dropdown-item" href="/log_out" id="a">Log Out</a></li>
+                          <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                      </div></span>
+                    
+                     
+       
+                    </div>
+
+
+        </div>
+        <style>
+           
+             a{
+                 color:black;
+          }
+          </style>
+             </div>
+
+          <div class="container col-md-11 mt-5">
+            <table class="table table-hover table col-md-11">
+              {% for trip in all_trips %}
+              <thead>
+              
+                <tr>
+                  
+                  <th scope="col">Day</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Pickup</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col">Level</th>
+                  <th scope="col">Board</th>
+                  <th scope="col">NumberLikes</th>
+                  <th scope="col">Like/Dislike</th>
+                  <th scop="col">Book</th>
+                  {% if session ['user_id']== trip.user_id %}
+                  <th scope="col">Actions</th>
+                  {%endif%}
+                  
+                </tr>
+              </thead>
+              <div class="container col-md-11">
+                <tbody>
+                  <tr>
+                    
+                    <td>{{trip.day | capitalize }}</td>
+                    <td>{{trip.time | capitalize}}</td>
+                    <td>{{trip.pickup_location | capitalize}}</td>
+                    <td>{{trip.destination | capitalize}}</td>
+                    <td>{{trip.level | capitalize}}</td>
+                    <td>{{trip.board | capitalize}}</td>
+                    <td>{{trip.all_likes | length }}</td>
+                    
+
+                    
+                      
+                    {% if session.user_id in trip.all_likes | map (attribute='id') %}
+                    <td><a href="/dislike/{{trip.id}}">Dislike</a></td>
+                      
+                      {% else%}
+                      <td><a href="/like/{{trip.id}}">Like</a></td>
+                    
+                      {% endif %}
+
+                    <td><a href="/show_trip/{{trip.id}}" id="a2">Book</a></td>
+                    
+                    
+                    <td>{% if session ['user_id']== trip.user_id %}
+                      
+                    <a href="/delete/{{trip.id}}" class="mt-3" id="a2">Delete</a> <a href="/update" id="a2"></a>
+                      
+                      {% endif %}
+                      {% endfor %}</td>
+  
+              
+                    <td></td>
+                  </tr>
+  
+                </div>
+                </tbody>
+              </div>
+
+            </table>
+            <style>
+              #a2 {
+                color:black;
+              }
+              .table{
+                font-size:large;
+              }
+            </style>
+            
+          </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+     </body>
+    </html>

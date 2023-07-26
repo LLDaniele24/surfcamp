@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='') }}">
+    <title>Login</title>
+</head>
+<body>
+  <div class="container img-fluid">
+    <style>
+  body{
+      font-family :'Courier New', Courier, monospace;
+      background-image : url("https://w0.peakpx.com/wallpaper/725/69/HD-wallpaper-blue-smoke-background-blue-abstract-wave-blue-abstract-smoke-background-blue-waves-background-abstract-waves.jpg");
+      background-repeat: no-repeat;
+      
+    }
+    a:link {
+      text-decoration: none;
+}
+    </style>
+                    <style>
+                      button:hover{
+                      
+                          color:red;
+                          
+                      }
+                    </style>
+  </div>
+
+
+
+
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+         {% endif %}
+      {% endwith %}
+
+    <div class="container">
+      <div class="container" id="blue" ><nav class="navbar" >
+        <div class="">
+         <a class="navbar-brand" href="#">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArLeH_hHFWW3E33ZGXOc80m6Df4enbTHD2MvFkO9i6fqCTW0VGJpVQehDyy1PlwmgVWc&usqp=CAU" alt="Logo" width="90" height="90" class="d-inline-block align-text-top">
+         <h1>LogIn</h1>
+        </a>
+        </div>
+      </div>
+          
+
+          <div class="container mt-5"><form action="/login_user" method="POST">
+            
+              <div class="col-md-3">
+                <label for="" class="form-label"><h4>Email adress</h4></label>
+                <input type="email" name="email" class="form-control" id="" aria-describedby="emailHelp">
+
+              </div>
+
+            <div class="col-md-3 mt-3">
+              <label for="" class="form-label"><h4>Password</h4></label>
+              <input type="password" name="password" class="form-control" id="" >
+            </div>
+
+            <button type="submit" class="btn btn-dark mt-3">Submit</button>
+          </form></div>
+
+       
+ </div>
+    
+</body>
+</html>
